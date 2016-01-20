@@ -13,5 +13,16 @@ class FeedTest(unittest.TestCase):
         
         self.assertEqual(feed_string, feed.feed_string)
 
+
+    def test_feed_items_method_returns_right_number_of_items(self):
+        feed_string = open("test-data/avax.xml").read()
+
+        feed = Feed(feed_string)
+
+        self.assertEqual(20, len(feed.items()))
+
+
+
+
 if __name__ == '__main__':
     unittest.main(warnings='ignore')    
