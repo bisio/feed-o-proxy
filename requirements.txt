@@ -1,4 +1,6 @@
+beautifulsoup4==4.4.1
 decorator==4.0.6
+gnureadline==6.3.3
 ipython==4.0.2
 ipython-genutils==0.1.0
 path.py==8.1.2

@@ -2,6 +2,7 @@
 
 import unittest
 from feedoproxy.Feed import Feed
+from feedoproxy.enrichers.avax import get_image_url_from_feed_item
 
 class FeedTest(unittest.TestCase):
 
@@ -21,6 +22,16 @@ class FeedTest(unittest.TestCase):
         self.assertEqual(20, len(feed.items()))
 
 
+class AvaxTest(unittest.TestCase):
+
+    def test_get_image_url_from_feed_item_returns_an_image_url(self):
+        self.feed_string = open("test-data/avax.xml").read()
+        feed = Feed(self.feed_string) 
+        firstItem = feed.items()[0]
+
+        imageUrl = get_image_url_from_feed_item(firstItem)
+
+        self.assertTrue("jpeg" in imageUrl)
 
 
 if __name__ == '__main__':
